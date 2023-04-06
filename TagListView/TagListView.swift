@@ -32,6 +32,14 @@ open class TagListView: UIView {
         }
     }
 
+    @IBInspectable open dynamic var disabledTextColor: UIColor = .white {
+        didSet {
+            tagViews.forEach {
+                $0.disabledTextColor = disabledTextColor
+            }
+        }
+    }
+
     @IBInspectable open dynamic var tagLineBreakMode: NSLineBreakMode = .byTruncatingMiddle {
         didSet {
             tagViews.forEach {
@@ -339,6 +347,7 @@ open class TagListView: UIView {
         
         tagView.textColor = textColor
         tagView.selectedTextColor = selectedTextColor
+        tagView.disabledTextColor = disabledTextColor
         tagView.tagBackgroundColor = tagBackgroundColor
         tagView.highlightedBackgroundColor = tagHighlightedBackgroundColor
         tagView.selectedBackgroundColor = tagSelectedBackgroundColor
